@@ -1,0 +1,18 @@
+- name: Setup remote workstation
+  hosts: all
+  become: yes
+
+  vars:
+    pip_install_packages:
+      - name: docker
+
+  roles:
+    - geerlingguy.pip
+
+
+  tasks:
+  # - name: Remove EXTERNALLY-MANAGED file
+  #   ansible.builtin.file:
+  #     path: /usr/lib/python3.{{ ansible_python.version.minor }}/EXTERNALLY-MANAGED
+  #     state: absent
+
