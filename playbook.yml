@@ -1,16 +1,32 @@
 - name: Setup remote workstation
-  hosts: all
-  become: yes
-
-  vars:
-    pip_install_packages:
-      - name: docker
+  hosts: webservers
+  become: true
+  vars_files:
+    - group_vars/env.yml
 
   roles:
-    - geerlingguy.pip
-
+    - role: geerlingguy.pip
+      pip_install_packages:
+        - docker
+      become: true
 
   tasks:
+    - name: create .env file
+      template:
+        src: templates/.env.j2
+        dest: .env
+    - name: start redmine
+      docker_container:
+        name: redmine
+        image: redmine
+        state: started
+        restart: yes
+        env_file: .env
+        published_ports:
+          - "80:3000"
+
+
+  # tasks:
   # - name: Remove EXTERNALLY-MANAGED file
   #   ansible.builtin.file:
   #     path: /usr/lib/python3.{{ ansible_python.version.minor }}/EXTERNALLY-MANAGED

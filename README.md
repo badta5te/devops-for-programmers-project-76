@@ -8,9 +8,12 @@ Install roles:
 make install_role
 ```
 
-Install pip:
+Install and Run redmine:
 
 ```bash
-make install_pip
+make run
 ```
 
+---
+
+The application will be available at https://badta5te.me
