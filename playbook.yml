@@ -1,5 +1,5 @@
-- name: Setup remote workstation
-  hosts: webservers
+- name: Setup Redmine
+  hosts: all
   become: true
   vars_files:
     - group_vars/webservers/vars.yml
@@ -16,6 +16,8 @@
       template:
         src: templates/.env.j2
         dest: .env
+      tags: redmine
+
     - name: start redmine
       docker_container:
         name: redmine
@@ -26,8 +28,20 @@
         env_file: .env
         published_ports:
           - "80:3000"
+      tags: redmine
 
+- name: Install Datadog Agent
+  hosts: webservers
+  become: true
+  vars_files:
+    - group_vars/webservers/vars.yml
+    - group_vars/webservers/vault.yml
 
+  roles:
+    - role: datadog.dd.agent
+      tags: datadog
+
+  # The solution for the issue: https://github.com/geerlingguy/ansible-role-pip/issuesb/66
   # tasks:
   # - name: Remove EXTERNALLY-MANAGED file
   #   ansible.builtin.file:
