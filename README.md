@@ -1,6 +1,13 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/badta5te/devops-for-programmers-project-76/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/badta5te/devops-for-programmers-project-76/actions)
 
+### Infrastructure:
+The whole application runs on DigitalOcean.
+- 2 droplets;
+- 1 load balancer;
+- 1 database (PostgreSQL);
+Both droplets are connected to the load balancer and available at https://badta5te.me
+
 
 Install roles:
 
@@ -8,12 +15,9 @@ Install roles:
 make install_role
 ```
 
-Install and Run redmine:
+Setup the application and run DataDog Agent:
 
 ```bash
 make run
 ```
 
----
-
-The application will be available at https://badta5te.me
