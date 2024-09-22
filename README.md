@@ -6,6 +6,7 @@ The whole application runs on DigitalOcean.
 - 2 droplets;
 - 1 load balancer;
 - 1 database (PostgreSQL);
+
 Both droplets are connected to the load balancer and available at https://badta5te.me
 
 
