@@ -21,7 +21,8 @@
         name: redmine
         image: redmine
         state: started
-        restart: yes
+        restart: true
+        recreate: true
         env_file: .env
         published_ports:
           - "80:3000"
