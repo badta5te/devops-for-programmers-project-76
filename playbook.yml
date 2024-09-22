@@ -1,9 +1,6 @@
 - name: Setup Redmine
   hosts: all
   become: true
-  vars_files:
-    - group_vars/all/vars.yml
-    - group_vars/webservers/vault.yml
 
   roles:
     - role: geerlingguy.pip
@@ -33,9 +30,6 @@
 - name: Install Datadog Agent
   hosts: webservers
   become: true
-  vars_files:
-    - group_vars/all/vars.yml
-    - group_vars/webservers/vault.yml
 
   roles:
     - role: datadog.dd.agent
