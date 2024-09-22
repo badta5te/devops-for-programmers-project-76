@@ -7,3 +7,8 @@ install_role:
 run:
 	ansible-playbook playbook.yml -i inventory.ini --ask-vault-pass -u root
 
+edit_vault:
+	ansible-vault edit group_vars/webservers/vault.yml
+
+view_vault:
+	ansible-vault view group_vars/webservers/vault.yml
