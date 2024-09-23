@@ -10,7 +10,7 @@
 
   tasks:
     - name: create .env file
-      mode: '664'
+      mode: '0664'
       template:
         src: templates/.env.j2
         dest: .env
