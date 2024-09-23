@@ -13,7 +13,7 @@
       template:
         src: templates/.env.j2
         dest: .env
-        mode: '0664'
+        mode: '664'
       tags: redmine
 
     - name: start redmine
