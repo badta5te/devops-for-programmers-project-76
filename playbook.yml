@@ -25,7 +25,7 @@
         recreate: true
         env_file: .env
         published_ports:
-          - "80:3000"
+          - "{{ external_port }}:3000"
       tags: redmine
 
 - name: Install Datadog Agent

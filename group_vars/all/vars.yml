@@ -2,6 +2,7 @@ redmine_db_postgres: private-db-postgresql-fra1-62764-do-user-6466579-0.e.db.ond
 redmine_db_database: defaultdb
 redmine_db_username: doadmin
 redmine_db_port: 25060
+external_port: 80
 datadog_site: datadoghq.eu
 datadog_api_key: "{{ vault_datadog_api_key }}"
 datadog_checks:
@@ -9,6 +10,6 @@ datadog_checks:
     init_config:
     instances:
       - name: "Check availability of the first web application"
-        url: "http://164.90.188.112"
+        url: "http://164.90.188.112:{{ external_port }}"
       - name: "Check availability of the second web application"
-        url: "http://165.232.122.151"
+        url: "http://165.232.122.151:{{ external_port }}"
