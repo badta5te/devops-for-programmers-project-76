@@ -10,10 +10,10 @@
 
   tasks:
     - name: create .env file
-      mode: '0664'
       template:
         src: templates/.env.j2
         dest: .env
+        mode: '0664'
       tags: redmine
 
     - name: start redmine
