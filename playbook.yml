@@ -36,7 +36,7 @@
     - role: datadog.dd.agent
       tags: datadog
 
-  # The solution for the issue: https://github.com/geerlingguy/ansible-role-pip/issuesb/66
+  # The solution for the issue: https://github.com/geerlingguy/ansible-role-pip/issues/66
   # tasks:
   # - name: Remove EXTERNALLY-MANAGED file
   #   ansible.builtin.file:
